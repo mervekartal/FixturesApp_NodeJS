@@ -1,11 +1,24 @@
 const express = require('express')
 const path = require('path')
 const ejs = require('ejs')
+const mongoose = require('mongoose')
 
 const pageController = require('./controllers/pageController')
 
 const app = express()
 
+//connect db
+mongoose.set('strictQuery', false)
+
+mongoose.connect('mongodb://localhost/fixtures-db').then(() => {
+    console.log('DB Connection Successful')
+}).catch((err) => {
+    console.log(err)
+})
+
+process.on('warning', (warning) => {
+    console.log(warning.stack);
+})
 
 
 
