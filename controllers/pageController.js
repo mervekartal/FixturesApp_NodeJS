@@ -1,3 +1,5 @@
+const Category = require("../models/Category")
+
 exports.getIndexPage = (req,res) => {
     res.status(200).render('index',{
         page_name: "index"
@@ -8,9 +10,11 @@ exports.getAboutPage = (req,res) => {
         page_name: "about"
     })
 }
-exports.getFurnituresPage = (req,res) => {
+exports.getFurnituresPage = async (req,res) => {
+    const categories = await Category.find().sort('-createdAt')
     res.status(200).render('furnitures',{
-        page_name: "furnitures"
+        page_name: "furnitures",
+        categories
     })
 }
 exports.getBlogPage = (req,res) => {
