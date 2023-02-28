@@ -4,6 +4,7 @@ const ejs = require('ejs')
 const mongoose = require('mongoose')
 
 const pageController = require('./controllers/pageController')
+const categoryController = require('./controllers/categoryController')
 
 const app = express()
 
@@ -44,7 +45,7 @@ app.get('/blog', pageController.getBlogPage) //blog
 app.get('/contact', pageController.getContactPage) //contact
 
 
-
+app.post('/furnitures', categoryController.createCategory)
 
 
 
