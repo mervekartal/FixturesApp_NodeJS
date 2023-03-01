@@ -41,6 +41,7 @@ app.use(express.urlencoded({extended: true}))
 app.get('/', pageController.getIndexPage) //home
 app.get('/about', pageController.getAboutPage) //about
 app.get('/categories', pageController.getCategoriesPage) //categories
+app.get('/furnitures', pageController.getFurnituresPage) //categories
 app.get('/blog', pageController.getBlogPage) //blog
 app.get('/contact', pageController.getContactPage) //contact
 

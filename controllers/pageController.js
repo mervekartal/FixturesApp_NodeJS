@@ -19,10 +19,9 @@ exports.getCategoriesPage = async (req,res) => {
     })
 }
 exports.getFurnituresPage = async (req,res) => {
-    const furnitures = await Furniture.find().sort('-createdAt')
+    // const furnitures = await Furniture.find().sort('-createdAt')
     res.status(200).render('furnitures',{
-        page_name: "furnitures",
-        furnitures
+        page_name: "furnitures"
     })
 }
 exports.getBlogPage = (req,res) => {
