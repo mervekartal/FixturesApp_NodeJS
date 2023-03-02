@@ -63,29 +63,32 @@
                         <figure><img src="images/img-1.png"></figure>
                      </div>
                      <h3 class="introduction_text"><%= categories[i].name %></h3>
-                     <!-- <div class="seemore_bt"><a href="#">See More</a></div> -->
                   </div>
                   <% } %>
-               </div>
             </div> 
+            <div class="row seemore_bt">
+               <div class="row text-center">
+                  <% if(pages > 0) { %>
+                  <ul class="nav tm-paging-links text-center">
+                      <% for(let i = 1; i <= pages; i++ ){ %>
+                          <% if(i == current) {  %>
+                              <li class="nav-item active"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link text-white bg-secondary"><%= i %></a></li>
+                          <% } else if(i < pages) { %>
+                              <li class="nav-item"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link tex-white bg-secondary"><%= i %></a></li>
+                          <% } else { %>
+                              <li class="nav-item"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link tex-white bg-secondary">></a></li>
+                              <% } %>
+                   <% } %>
+                  </ul>
+      
+                  <% } %>
+      
+            </div> 
+
          </div>
 
-         <div class="text-center">
-            <% if(pages > 0) { %>
-            <ul class="nav tm-paging-links text-center">
-                <% for(let i = 1; i <= pages; i++ ){ %>
-                    <% if(i == current) {  %>
-                        <li class="nav-item active"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link text-white bg-secondary"><%= i %></a></li>
-                    <% } else if(i < pages) { %>
-                        <li class="nav-item"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link tex-white bg-secondary"><%= i %></a></li>
-                    <% } else { %>
-                        <li class="nav-item"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link tex-white bg-secondary">></a></li>
-                        <% } %>
-             <% } %>
-            </ul>
+         </div>
 
-            <% } %>
-        </div>
 
    
       </div>

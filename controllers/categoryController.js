@@ -19,7 +19,7 @@ exports.getAllCategories = async (req,res) => {
 
     //sayfa geçişi
     const categories = await Category.find({}).sort('-dateCreated')
-    .skip((page-1) * categoriesPerPage)
+    .skip((page-1) * categoriesPerPage).limit(4)
     res.status(200).render('categories', {
       page_name: "categories",
       categories, 
