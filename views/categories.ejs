@@ -72,11 +72,11 @@
                   <ul class="nav tm-paging-links text-center">
                       <% for(let i = 1; i <= pages; i++ ){ %>
                           <% if(i == current) {  %>
-                              <li class="nav-item active"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link text-white bg-secondary"><%= i %></a></li>
+                              <li class="nav-item active"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link text-white bg-warning"><%= i %></a></li>
                           <% } else if(i < pages) { %>
-                              <li class="nav-item"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link tex-white bg-secondary"><%= i %></a></li>
+                              <li class="nav-item"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link tex-white bg-warning"><%= i %></a></li>
                           <% } else { %>
-                              <li class="nav-item"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link tex-white bg-secondary">></a></li>
+                              <li class="nav-item"><a href="/categories?page=<%= i %>" class="nav-link tm-paging-link tex-white bg-warning">></a></li>
                               <% } %>
                    <% } %>
                   </ul>
