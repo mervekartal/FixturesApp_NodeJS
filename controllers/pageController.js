@@ -23,11 +23,6 @@ exports.getFurnituresPage = async (req,res) => {
         page_name: "furnitures"
     })
 }
-exports.getBlogPage = (req,res) => {
-    res.status(200).render('blog',{
-        page_name: "blog"
-    })
-}
 exports.getContactPage = (req,res) => {
     res.status(200).render('contact',{
         page_name: "contact"
