@@ -1,33 +1,93 @@
 <%- include('partials/_header') -%>
 <%- include('partials/_navigation') -%>
-      <!-- furnitures section start -->
-      <div class="furnitures_section layout_padding">
+      <!-- products section start -->
+      <div class="blog_section layout_padding">
          <div class="container">
             <div class="row">
-               <div class="col-sm-12">
-                  <h1 class="furnitures_taital">Our Furniture Work</h1>
-                  <p class="furnitures_text">reader will be distracted by the readable content of a page when looking at its layout. </p>
+               <div class="col-md-12">
+                  <h1 class="blog_taital">Furnitures</h1>
                </div>
+               <div class="col-sm-12 mt-3 text-center">
+                  <button class="btn btn-md btn-warning text-white" data-toggle="modal" data-target="#addFurniture"><i class="fa fa-plus"></i><span>Add New Furniture</span></button>
+               </div>
+   
             </div>
-            <div class="col-sm-12 mt-3 text-center">
-               <button class="btn btn-md btn-primary text-white" data-toggle="modal" data-target="#addFurniture"><i class="fa fa-plus"></i><span>Add New Furniture</span></button>
-            </div>
-            
+         </div>
+         <!-- Add Modal Start -->
+         <div class="modal fade" id="addFurniture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title"><b>Add New Furniture</b></h4>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span></button>
+               </div>
+               <div class="modal-body customer-box">
+               <!-- Tab panes -->
+                  <div class="tab-content">
+                     <div class="tab-pane active" id="Login">
+                        <form method="POST" action="/furnitures" class="form-horizontal">
+                           <div class="form-group mb-2">
+                              <div class="col-sm-12">
+                                 <label class="col-form-label">Furniture Name:</label>
+                                 <input type="text" name="name" class="form-control" placeholder="Furniture Name">
+                              </div>
+                           </div>
+                           <div class="form-group mb-2 col-sm-12">
+                              <label class="col-form-label">Category:</label>
+                              <select class="form-control" name="category" placeholder="Choose Category">
+                                 <% for(let i=0; i < categories.length; i++) { %>
+                                    <option value="<%= categories[i]._id %>"><%= categories[i].name %></option>
+                                 <% } %>
+                              </select>                                       
+                           </div>
+                           <div class="form-group mb-2">
+                              <div class="col-sm-12">
+                                 <label class="col-form-label">Description:</label>
+                                 <textarea rows="8" name="description" class="form-control"
+                                    placeholder="Description"></textarea>
+                              </div>
+                           </div>
 
-            <div class="furnitures_section_2 col-lg-12">
-               <div class="row">
-                  <div class="col-md-3">
-                     <div class="hover01 column">
-                        <figure><img src="images/img-1.png"></figure>
+                           <div class="row">
+                              <div class="col-sm-10 mt-2">
+                                 <button type="submit" class="btn btn-warning btn-radius btn-brd grd1">
+                                    Save
+                                 </button>
+                                 <button type="button" class="btn btn-secondary btn-radius btn-brd grd1" data-dismiss="modal" aria-hidden="true">
+                                    Cancel
+                                 </button>
+                              </div>
+                           </div>
+                        </form>
                      </div>
-                     <h3 class="introduction_text">Test</h3>
-                     <!-- <div class="seemore_bt"><a href="#">See More</a></div> -->
                   </div>
                </div>
             </div>
          </div>
+         </div>
+         <!-- Add Modal End -->
+                     
+         
+         <div class="container">
+            <div class="blog_section_2 layout_padding">
+               <div class="row">
+                  <% for(let i=0; i < furnitures.length; i++) { %>
+                  <div class="col-lg-4 col-md-4 col-sm-12">
+                     <div class="blog_box">
+                        <a href="furnitures/<%= furnitures[i].slug %>">
+                        <div class="blog_img"><img src="images/blog-img2.png"></div>
+                        <p class="chair_text"><%= furnitures[i].name %></p>
+                        </a>
+                     </div>
+                  </div>
+                  <% } %>
+               </div>
+            </div>
+            <div class="readmore_bt"><a href="#">See More</a></div>
+         </div>
       </div>
-      <!-- furnitures section end -->
+      <!-- products section end -->
       <%- include('partials/_footer') -%>
 
    </body>

@@ -1,0 +1,33 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_navigation') -%>
+      <!-- about section start -->
+      <div class="about_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="about_taital">Details</h1>
+                  <p class="about_text">Information about furniture is listed below.</p>
+               </div>
+            </div>
+            <div class="about_section_2 layout_padding">
+               <div class="row">
+                  <div class="col-lg-4">
+                     <div class="about_img"><img src="/images/about-img.png"></div>
+                  </div>
+                  <div class="col-lg-8">
+                     <div class="good_text"><%= furniture.name %></div>
+                     <p class="making_text"><%= furniture.description %> </p>
+                  </div>
+                  <div class="col-lg-6 text-right">
+                    <a class="btn btn-warning btn-md mt-3" href="#" data-toggle="modal" data-target="#editTraining"><i class="fa fa-edit"></i>Edit</a>
+                    <a class="btn btn-danger btn-md mt-3" href="#" data-toggle="modal" data-target="#deleteTraining"><i class="fa fa-eraser"></i>Delete</a> 
+                 </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section end -->
+      <%- include('partials/_footer') -%>
+   </body>
+</html>

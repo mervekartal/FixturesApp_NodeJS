@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 
 const pageController = require('./controllers/pageController')
 const categoryController = require('./controllers/categoryController')
+const furnitureController = require('./controllers/furnitureController')
 
 const app = express()
 
@@ -41,13 +42,16 @@ app.use(express.urlencoded({extended: true}))
 app.get('/', pageController.getIndexPage) //home
 app.get('/about', pageController.getAboutPage) //about
 // app.get('/categories', pageController.getCategoriesPage) //categories
-app.get('/furnitures', pageController.getFurnituresPage) //furnitures
-app.get('/blog', pageController.getBlogPage) //blog
+// app.get('/furnitures', pageController.getFurnituresPage) //furnitures
 app.get('/contact', pageController.getContactPage) //contact
 
 
 app.post('/categories', categoryController.createCategory)
 app.get('/categories', categoryController.getAllCategories)
+
+app.get('/furnitures', furnitureController.getAllFurnitures)
+app.post('/furnitures', furnitureController.createFurniture)
+app.get('/furnitures/:slug', furnitureController.getFurniture)
 
 
 
