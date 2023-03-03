@@ -8,6 +8,10 @@ const FurnitureSchema = new Schema({
         unique: true,
         required: true
     },
+    description: {
+        type: String,
+        required: true,
+    },
     slug: {
         type: String,
         unique: true
@@ -15,6 +19,10 @@ const FurnitureSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
     }
 })
 
