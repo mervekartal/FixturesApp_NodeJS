@@ -1,6 +1,5 @@
 <%- include('partials/_header') -%>
 <%- include('partials/_navigation') -%>
-      <!-- about section start -->
       <div class="about_section layout_padding">
          <div class="container">
             <div class="row">
@@ -19,15 +18,81 @@
                      <p class="making_text"><%= furniture.description %> </p>
                   </div>
                   <div class="col-lg-6 text-right">
-                    <a class="btn btn-warning btn-md mt-3" href="#" data-toggle="modal" data-target="#editTraining"><i class="fa fa-edit"></i>Edit</a>
-                    <a class="btn btn-danger btn-md mt-3" href="#" data-toggle="modal" data-target="#deleteTraining"><i class="fa fa-eraser"></i>Delete</a> 
+                    <a class="btn btn-warning btn-md mt-3" data-toggle="modal" data-target="#editFurniture"><i class="fa fa-edit"></i>Edit</a>
+                    <a class="btn btn-danger btn-md mt-3" data-toggle="modal" data-target="#deleteFurniture"><i class="fa fa-eraser"></i>Delete</a> 
                  </div>
+
+                  <!-- Edit Modal Start -->
+                  <div class="modal fade" id="editFurniture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                           <div class="modal-body customer-box">
+                                 <!-- Tab panes -->
+                                 <div class="tab-content">
+                                    <div class="tab-pane active" id="Login">
+                                       <form method="POST" action="/furnitures/<%= furniture.slug %>?_method=PUT" class="form-horizontal">
+                                             <div class="form-group mb-2">
+                                                <div class="col-sm-12">
+                                                   <input type="text" name="name" class="form-control" value="<%= furniture.name %>" placeholder="Furniture Name">
+                                                </div>
+                                             </div>
+                                             <div class="form-group mb-2">
+                                                <div class="col-sm-12">
+                                                   <textarea rows="8" name="description" class="form-control"><%= furniture.description %></textarea>
+                                                </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="col-sm-10">
+                                                   <button type="submit" class="btn btn-primary btn-radius btn-brd grd1">
+                                                         Save
+                                                   </button>
+                                                   <button type="submit" class="btn btn-secondary btn-radius btn-brd grd1"
+                                                         data-dismiss="modal" aria-hidden="true">
+                                                         Cancel
+                                                   </button>
+                                                </div>
+                                             </div>
+                                       </form>
+                                    </div>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Edit Modal End -->
+
+
+                                          <!-- Delete Modal Start-->
+                                          <div class="modal" id="deleteFurniture" tabindex="-1" role="dialog">
+                                             <div class="modal-dialog" role="document">
+                                             <form method="POST" action="/furnitures/<%= furniture.slug %>?_method=DELETE" class="form-horizontal">
+                             
+                                               <div class="modal-content">
+                                                 <div class="modal-header">
+                                                   <h5 class="modal-title"><b>Delete Furniture</b></h5>
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                   </button>
+                                                 </div>
+                                                 <div class="modal-body">
+                                                   <p>Are you sure you want to delete <b><%= furniture.name %></b>?</p>
+                                                 </div>
+                                                 <div class="modal-footer">
+                                                   <button type="submit" class="btn btn-danger btn-radius btn-brd grd1">Yes, sure</button>
+                                                   <button type="button" class="btn btn-secondary btn-radius btn-brd grd1" data-dismiss="modal" aria-label="Close">Cancel</button>
+                                                 </div>
+                                               </div>
+                             
+                                             </form>
+                                             </div>
+                                         </div>
+                                           <!-- Delete Modal End-->
+                  
 
                </div>
             </div>
          </div>
       </div>
-      <!-- about section end -->
       <%- include('partials/_footer') -%>
    </body>
 </html>

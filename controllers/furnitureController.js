@@ -42,5 +42,23 @@ exports.getFurniture = async (req, res) => {
         })
    }catch(err){
         res.status(400).redirect('/furnitures')
+    }
 }
- }
+exports.updateFurniture = async (req, res) => {
+    try{
+        const furniture = await Furniture.findOne({slug: req.params.slug})
+        furniture.name = req.body.name
+        furniture.category = req.body.category
+        furniture.description = req.body.description
+        
+        furniture.save()
+
+        res.status(200).redirect(`/furnitures/${req.params.slug}`)
+
+    }catch(err){
+         res.status(400).json({
+         status: 'fail',
+         err
+        })
+    }
+}

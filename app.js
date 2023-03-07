@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const ejs = require('ejs')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 const pageController = require('./controllers/pageController')
 const categoryController = require('./controllers/categoryController')
@@ -31,6 +32,9 @@ app.set("view engine","ejs")
 app.use(express.static('public'))
 app.use(express.json()) 
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method',{
+    methods: ['POST','GET'],
+}))
 
 // app.get('/', (req, res) => {
 //     res.sendFile(path.resolve(__dirname, 'views/index.html'))
